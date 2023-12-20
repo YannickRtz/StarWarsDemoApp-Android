@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.*
+import com.example.starwarschallenge.ui.routes.movies.LightsabersView
 import com.example.starwarschallenge.ui.routes.movies.MoviesView
 
 val LocalNavController =
@@ -51,7 +52,7 @@ fun RootView(modifier: Modifier = Modifier) {
                     composable(item.route) {
                         when (item) {
                             is StarWarsTabs.MoviesTab -> MoviesView()
-                            is StarWarsTabs.LightsabersTab -> Text(item.label) // TODO
+                            is StarWarsTabs.LightsabersTab -> LightsabersView()
                         }
                     }
                 }

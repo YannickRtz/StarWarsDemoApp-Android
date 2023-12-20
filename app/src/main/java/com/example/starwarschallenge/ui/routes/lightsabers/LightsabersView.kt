@@ -15,7 +15,7 @@ import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MoviesView(
+fun LightsabersView(
     navController: NavController = LocalNavController.current,
     viewModel: MoviesViewModel = koinViewModel(),
 ) {
