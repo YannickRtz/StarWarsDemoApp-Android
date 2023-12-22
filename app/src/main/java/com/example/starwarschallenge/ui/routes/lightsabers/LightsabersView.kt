@@ -17,7 +17,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun LightsabersView(
     navController: NavController = LocalNavController.current,
-    viewModel: MoviesViewModel = koinViewModel(),
+    viewModel: LightsabersViewModel = koinViewModel(),
 ) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
