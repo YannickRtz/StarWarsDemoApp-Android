@@ -1,4 +1,4 @@
-package com.example.starwarschallenge.ui.routes.movies
+package com.example.starwarschallenge.ui.routes.lightsabers
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize

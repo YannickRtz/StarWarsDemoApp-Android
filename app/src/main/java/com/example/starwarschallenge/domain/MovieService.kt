@@ -8,7 +8,7 @@ import com.example.starwarschallenge.domain.model.Movie
 class MovieService(private val movieRepository: MovieRepository) {
 
     suspend fun fetchMovies(): List<Movie> {
-        return movieRepository.fetchMovies();
+        return movieRepository.fetchMovies()
     }
 
 }

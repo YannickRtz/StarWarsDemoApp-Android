@@ -1,9 +1,9 @@
 package com.example.starwarschallenge.domain.model
 
-import java.util.*
+import java.time.LocalDate
 
 data class Movie(
     val title: String,
     val id: Int,
-    val date: Date,
+    val date: LocalDate,
 )

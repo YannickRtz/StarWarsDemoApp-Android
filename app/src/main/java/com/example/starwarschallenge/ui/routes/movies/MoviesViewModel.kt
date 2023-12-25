@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.starwarschallenge.domain.MovieService
 import com.example.starwarschallenge.domain.model.Movie
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
 sealed class MoviesState {
@@ -14,18 +15,18 @@ sealed class MoviesState {
 }
 
 class MoviesViewModel(private val movieService: MovieService) : ViewModel() {
-    var state: MoviesState = MoviesState.Initial
+    var state = MutableStateFlow<MoviesState>(MoviesState.Initial)
 
     fun fetchMovies() {
         println("Hey")
-        state = MoviesState.Loading
+        state.value = MoviesState.Loading
         try {
             viewModelScope.launch {
                 val result = movieService.fetchMovies()
-                state = MoviesState.Success(result)
+                state.value = MoviesState.Success(result)
             }
         } catch (e: Exception) {
-            state = MoviesState.Error(e.toString())
+            state.value = MoviesState.Error(e.toString())
         }
     }
 }

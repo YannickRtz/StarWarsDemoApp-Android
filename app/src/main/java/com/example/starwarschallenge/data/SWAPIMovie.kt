@@ -9,7 +9,7 @@ data class SWAPIMovie(
     val title: String,
 
     @SerialName(value = "episode_id")
-    val episodeId: String,
+    val episodeId: Int,
 
     @SerialName(value = "opening_crawl")
     val userId: String,
