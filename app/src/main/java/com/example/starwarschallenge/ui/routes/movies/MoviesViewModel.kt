@@ -2,6 +2,7 @@ package com.example.starwarschallenge.ui.routes.movies
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.starwarschallenge.domain.MovieResult
 import com.example.starwarschallenge.domain.MovieService
 import com.example.starwarschallenge.domain.model.Movie
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,7 +24,10 @@ class MoviesViewModel(private val movieService: MovieService) : ViewModel() {
         try {
             viewModelScope.launch {
                 val result = movieService.fetchMovies()
-                state.value = MoviesState.Success(result)
+                state.value = when (result) {
+                    is MovieResult.Success -> MoviesState.Success(result.movies)
+                    is MovieResult.Error -> MoviesState.Error(result.reason)
+                }
             }
         } catch (e: Exception) {
             state.value = MoviesState.Error(e.toString())
